@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1038876867428",
+    "project_id": "kurultaiapp-4e16a",
+    "storage_bucket": "kurultaiapp-4e16a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038876867428:android:cbe21d24305a27ba021871",
+        "android_client_info": {
+          "package_name": "com.example.kurultai_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1038876867428-eits5mtpujorpv2uuhorm9frlevbtl3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpd4Qfrb6EHT3YUtUADJsY8Qb4y8vIEtU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1038876867428-eits5mtpujorpv2uuhorm9frlevbtl3u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1038876867428-otg1b47760ign0m417k3v9j00l8sa6bc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kurultaiApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
