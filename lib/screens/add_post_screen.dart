@@ -25,11 +25,11 @@ class _AddPostScreenState extends State<AddPostScreen> {
       context: parentContext,
       builder: (BuildContext context) {
         return SimpleDialog(
-          title: const Text('Create a Post'),
+          title: const Text('Создать пост'),
           children: <Widget>[
             SimpleDialogOption(
                 padding: const EdgeInsets.all(20),
-                child: const Text('Take a photo'),
+                child: const Text('Сфотографировать'),
                 onPressed: () async {
                   Navigator.pop(context);
                   Uint8List file = await pickImage(ImageSource.camera);
@@ -39,7 +39,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 }),
             SimpleDialogOption(
                 padding: const EdgeInsets.all(20),
-                child: const Text('Choose from Gallery'),
+                child: const Text('Выбрать из галереи'),
                 onPressed: () async {
                   Navigator.of(context).pop();
                   Uint8List file = await pickImage(ImageSource.gallery);
@@ -49,7 +49,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 }),
             SimpleDialogOption(
               padding: const EdgeInsets.all(20),
-              child: const Text("Cancel"),
+              child: const Text("Отмена"),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -118,6 +118,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
       child: IconButton(
         icon: const Icon(
           Icons.upload,
+          color: Colors.black,
         ),
         onPressed: () => _selectImage(context),
       ),
@@ -128,9 +129,11 @@ class _AddPostScreenState extends State<AddPostScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: clearImage,
+          color: Colors.black,
         ),
         title: const Text(
           'Post to',
+          style: TextStyle(color: Colors.black),
         ),
         centerTitle: false,
         actions: <Widget>[
@@ -153,6 +156,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
       // POST FORM
       body: Column(
         children: <Widget>[
+
           isLoading
               ? const LinearProgressIndicator()
               : const Padding(padding: EdgeInsets.only(top: 0.0)),
@@ -169,6 +173,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.3,
                 child: TextField(
+                  style: TextStyle(backgroundColor: Color.fromRGBO(87, 144, 223, 0.6), color:  Colors.black),
                   controller: _descriptionController,
                   decoration: const InputDecoration(
                       hintText: "Write a caption...",

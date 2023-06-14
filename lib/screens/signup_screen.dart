@@ -82,9 +82,17 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(87, 144, 223, 0.6),
+        title: const Text(
+          "Kurultai",
+        ),
+        centerTitle: false,
+      ),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
+          color: const Color.fromRGBO(87, 144, 223, 0.6),
           padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
@@ -94,6 +102,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Container(),
                 flex: 2,
               ),
+
               SvgPicture.asset(
                 'assets/ic_instagram.svg',
                 color: primaryColor,
@@ -130,7 +139,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your username',
+                hintText: 'Введите ваш логин',
                 textInputType: TextInputType.text,
                 textEditingController: _usernameController,
               ),
@@ -138,7 +147,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your email',
+                hintText: 'Введите вашу почту',
                 textInputType: TextInputType.emailAddress,
                 textEditingController: _emailController,
               ),
@@ -146,7 +155,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your password',
+                hintText: 'Введите ваш пароль',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
                 isPass: true,
@@ -155,7 +164,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your bio',
+                hintText: 'Расскажите о себе',
                 textInputType: TextInputType.text,
                 textEditingController: _bioController,
               ),
@@ -166,7 +175,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Container(
                   child: !_isLoading
                       ? const Text(
-                    'Sign up',
+                    'Регистрация',
                   )
                       : const CircularProgressIndicator(
                     color: primaryColor,
@@ -195,7 +204,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   Container(
                     child: const Text(
-                      'Already have an account?',
+                      'У вас уже есть аккаунт?',
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),
@@ -207,7 +216,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     child: Container(
                       child: const Text(
-                        ' Login.',
+                        ' Войти.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),

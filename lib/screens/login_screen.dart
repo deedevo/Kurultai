@@ -59,9 +59,17 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(87, 144, 223, 0.6),
+        title: const Text(
+          "Kurultai",
+        ),
+        centerTitle: false,
+      ),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
+          color: Color.fromRGBO(87, 144, 223, 0.6),
           padding: MediaQuery.of(context).size.width > webScreenSize
               ? EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width / 3)
@@ -83,15 +91,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 64,
               ),
               TextFieldInput(
-                hintText: 'Enter your email',
+                hintText: 'Введите вашу почту',
                 textInputType: TextInputType.emailAddress,
                 textEditingController: _emailController,
+
               ),
               const SizedBox(
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your password',
+                hintText: 'Введите ваш пароль',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
                 isPass: true,
@@ -100,14 +109,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               InkWell(
+                onTap: loginUser,
                 child: Container(
-                  child: !_isLoading
-                      ? const Text(
-                    'Log in',
-                  )
-                      : const CircularProgressIndicator(
-                    color: primaryColor,
-                  ),
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -117,8 +120,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     color: blueColor,
                   ),
+                  child: !_isLoading
+                      ? const Text(
+                    'Войти'
+                        ''
+                        '',
+                  )
+                      : const CircularProgressIndicator(
+                    color: primaryColor,
+                  ),
                 ),
-                onTap: loginUser,
               ),
               const SizedBox(
                 height: 12,
@@ -131,10 +142,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    child: const Text(
-                      'Dont have an account?',
-                    ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: const Text(
+                      'У вас ещё нет аккаунта?',
+                    ),
                   ),
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
@@ -143,13 +154,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: Container(
+
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+
                       child: const Text(
-                        ' Signup.',
+                        ' Регистрация.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 8),
                     ),
                   ),
                 ],

@@ -73,9 +73,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     )
         : Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: const Color.fromRGBO(87, 144, 223, 0.6),
         title: Text(
           userData['username'],
+          selectionColor: Colors.black,
 
         ),
         centerTitle: false,
@@ -95,18 +96,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       radius: 40,
                     ),
+
                     Expanded(
                       flex: 1,
+
                       child: Column(
                         children: [
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment:
                             MainAxisAlignment.spaceEvenly,
+
                             children: [
-                              buildStatColumn(postLen, "posts"),
-                              buildStatColumn(followers, "followers"),
-                              buildStatColumn(following, "following"),
+
+                              buildStatColumn(postLen, "публикаций"),
+                              buildStatColumn(followers, "подписчиков"),
+                              buildStatColumn(following, "подписок"),
                             ],
                           ),
                           Row(
@@ -116,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               FirebaseAuth.instance.currentUser!.uid ==
                                   widget.uid
                                   ? FollowButton(
-                                text: 'Sign Out',
+                                text: 'Выйти',
                                 backgroundColor:
                                 mobileBackgroundColor,
                                 textColor: primaryColor,
@@ -134,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               )
                                   : isFollowing
                                   ? FollowButton(
-                                text: 'Unfollow',
+                                text: 'Отписаться',
                                 backgroundColor: Colors.white,
                                 textColor: Colors.black,
                                 borderColor: Colors.grey,
@@ -153,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 },
                               )
                                   : FollowButton(
-                                text: 'Follow',
+                                text: 'Подписаться',
                                 backgroundColor: Colors.blue,
                                 textColor: Colors.white,
                                 borderColor: Colors.blue,
@@ -187,6 +192,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     userData['bio'],
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Colors.black
                     ),
                   ),
                 ),
@@ -254,6 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
+            color: Colors.black
           ),
         ),
         Container(

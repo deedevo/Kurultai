@@ -23,18 +23,16 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: width > webScreenSize
           ? null
           : AppBar(
-        backgroundColor: mobileBackgroundColor,
-        centerTitle: false,
-        title: SvgPicture.asset(
-          'assets/ic_instagram.svg',
-          color: primaryColor,
-          height: 32,
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Kurultai",
+          style: TextStyle(color: Colors.black),
         ),
         actions: [
           IconButton(
             icon: const Icon(
               Icons.messenger_outline,
-              color: primaryColor,
+              color: Colors.black,
             ),
             onPressed: () {},
           ),

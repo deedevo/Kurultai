@@ -50,9 +50,12 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: const Color.fromRGBO(87, 144, 223, 0.6),
         title: const Text(
-          'Comments',
+          'Комментарий',
+          style: TextStyle(
+            color: Colors.white, // Replace with your desired text color
+          ),
         ),
         centerTitle: false,
       ),
@@ -81,6 +84,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
       // text input
       bottomNavigationBar: SafeArea(
         child: Container(
+          color: const Color.fromRGBO(87, 144, 223, 0.6),
           height: kToolbarHeight,
           margin:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
@@ -97,7 +101,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   child: TextField(
                     controller: commentEditingController,
                     decoration: InputDecoration(
-                      hintText: 'Comment as ${user.username}',
+                      hintText: 'Комментировать как ${user.username}',
                       border: InputBorder.none,
                     ),
                   ),
@@ -113,8 +117,8 @@ class _CommentsScreenState extends State<CommentsScreen> {
                   padding:
                   const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: const Text(
-                    'Post',
-                    style: TextStyle(color: Colors.blue),
+                    'Постить',
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               )

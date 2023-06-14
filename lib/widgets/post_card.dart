@@ -57,14 +57,14 @@ class _PostCardState extends State<PostCard> {
     try {
       // final model.User user = Provider.of<UserProvider>(context, listen: false).getUser;
       if (userId == "IPRgavQZ1nbrETQOz9pLjHMYhYs2") {
-        showSnackBar(context, "The post with ID $postId has been deleted by the admin.");
+        showSnackBar(context, "Сообщение с идентификатором $postId было удалено администратором.");
         await FireStoreMethods().deletePost(postId);
         final  model.User user = Provider.of<UserProvider>(context).getUser;
         // Navigate to the desired page after deleting the post
       }
       else {
         await FireStoreMethods().deletePost(postId);
-        showSnackBar(context, "Deleted Post!");
+        showSnackBar(context, "Удаленный пост!");
       }
 
     } catch (err) {
@@ -88,7 +88,9 @@ class _PostCardState extends State<PostCard> {
         border: Border.all(
           color: width > webScreenSize ? secondaryColor : mobileBackgroundColor,
         ),
-        color: mobileBackgroundColor,
+        color: const Color.fromRGBO(87, 144, 223, 0.6),
+        borderRadius: BorderRadius.circular(50.0)
+
       ),
       padding: const EdgeInsets.symmetric(
         vertical: 10,
@@ -122,6 +124,7 @@ class _PostCardState extends State<PostCard> {
                           widget.snap['username'].toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.black
                           ),
                         ),
                       ],
@@ -141,7 +144,7 @@ class _PostCardState extends State<PostCard> {
                                   vertical: 16),
                               shrinkWrap: true,
                               children: [
-                                'Delete',
+                                'Удалить',
                               ]
                                   .map(
                                     (e) => InkWell(
@@ -166,7 +169,7 @@ class _PostCardState extends State<PostCard> {
                       },
                     );
                   },
-                  icon: const Icon(Icons.more_vert),
+                  icon: const Icon(Icons.more_vert, color: Colors.black,),
                 )
                     : Container(),
               ],
@@ -232,6 +235,7 @@ class _PostCardState extends State<PostCard> {
                   )
                       : const Icon(
                     Icons.favorite_border,
+                    color: Colors.black,
                   ),
                   onPressed: () => FireStoreMethods().likePost(
                     widget.snap['postId'].toString(),
@@ -243,6 +247,7 @@ class _PostCardState extends State<PostCard> {
               IconButton(
                 icon: const Icon(
                   Icons.comment_outlined,
+                  color: Colors.black,
                 ),
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
@@ -252,17 +257,6 @@ class _PostCardState extends State<PostCard> {
                   ),
                 ),
               ),
-              IconButton(
-                  icon: const Icon(
-                    Icons.send,
-                  ),
-                  onPressed: () {}),
-              Expanded(
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                        icon: const Icon(Icons.bookmark_border), onPressed: () {}),
-                  ))
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
@@ -278,8 +272,12 @@ class _PostCardState extends State<PostCard> {
                         .subtitle2!
                         .copyWith(fontWeight: FontWeight.w800),
                     child: Text(
-                      '${widget.snap['likes'].length} likes',
-                      style: Theme.of(context).textTheme.bodyText2,
+                      '${widget.snap['likes'].length} нравится',
+                      style: TextStyle(
+                        color: Colors.black, // Replace with your desired text color
+                        fontSize: 14, // Replace with your desired font size
+                        fontWeight: FontWeight.bold, // Replace with your desired font weight
+                      ),
                     )),
                 Container(
                   width: double.infinity,
@@ -306,10 +304,10 @@ class _PostCardState extends State<PostCard> {
                 InkWell(
                   child: Container(
                     child: Text(
-                      'View all $commentLen comments',
+                      'Просмотреть все комментарии $commentLen',
                       style: const TextStyle(
                         fontSize: 16,
-                        color: secondaryColor,
+                        color: Colors.white,
                       ),
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 4),
@@ -327,7 +325,7 @@ class _PostCardState extends State<PostCard> {
                     DateFormat.yMMMd()
                         .format(widget.snap['datePublished'].toDate()),
                     style: const TextStyle(
-                      color: secondaryColor,
+                      color: Colors.white,
                     ),
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 4),
